@@ -11,12 +11,14 @@ class Edit extends Component {
     this.onChangeItemName = this.onChangeItemName.bind(this);
     this.onChangeItemDate = this.onChangeItemDate.bind(this);
     this.onChangeItemAmount = this.onChangeItemAmount.bind(this);
+    this.onChangeItemNotes = this.onChangeItemNotes.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
       item_name: "",
       item_date: "",
       item_amount: "",
+      item_notes: "",
       items: [],
     };
   }
@@ -29,6 +31,7 @@ class Edit extends Component {
           item_name: response.data.item_name,
           item_date: response.data.item_date,
           item_amount: response.data.item_amount,
+          item_notes: response.data.item_notes,
         });
       })
       .catch(function (error) {
@@ -55,6 +58,12 @@ class Edit extends Component {
     });
   }
 
+  onChangeItemNotes(e) {
+    this.setState({
+      item_notes: e.target.value,
+    });
+  }
+
   // This function will handle the submission.
   onSubmit(e) {
     e.preventDefault();
@@ -62,6 +71,7 @@ class Edit extends Component {
       item_name: this.state.item_name,
       item_date: this.state.item_date,
       item_amount: this.state.item_amount,
+      item_notes: this.state.item_notes,
     };
     console.log(newEditedItem);
 
@@ -73,6 +83,14 @@ class Edit extends Component {
       )
       .then((res) => console.log(res.data));
 
+    // We will empty the state after posting the data to the database
+    this.setState({
+      item_name: "",
+      item_date: "",
+      item_amount: "",
+      item_notes: "",
+    });
+
     this.props.history.push("/");
   }
 
@@ -80,7 +98,7 @@ class Edit extends Component {
   render() {
     return (
       <div>
-        <h3 align="center">Update Record</h3>
+        <h3 align="center">Update Item</h3>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
             <label>Item name: </label>
@@ -94,7 +112,7 @@ class Edit extends Component {
           <div className="form-group">
             <label>Date item added: </label>
             <input
-              type="text"
+              type="date"
               className="form-control"
               value={this.state.item_date}
               onChange={this.onChangeItemDate}
@@ -107,6 +125,15 @@ class Edit extends Component {
               className="form-control"
               value={this.state.item_amount}
               onChange={this.onChangeItemAmount}
+            />
+          </div>
+          <div className="form-group">
+            <label>Item notes: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.item_notes}
+              onChange={this.onChangeItemNotes}
             />
           </div>
           <div className="form-group">

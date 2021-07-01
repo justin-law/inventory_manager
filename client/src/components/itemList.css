@@ -1,0 +1,23 @@
+table {
+    width: 100%;
+}
+
+.itemCol {
+    width: 10%;
+}
+.amountCol {
+    width: 10%;
+}
+
+.dateCol {
+    width: 10%;
+}
+
+.notesCol {
+    width: 60%;
+}
+
+
+.actionCol {
+    width: 10%;
+}

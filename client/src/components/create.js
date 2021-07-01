@@ -13,12 +13,14 @@ export default class Create extends Component {
     this.onChangeItemName = this.onChangeItemName.bind(this);
     this.onChangeItemDate = this.onChangeItemDate.bind(this);
     this.onChangeItemAmount = this.onChangeItemAmount.bind(this);
+    this.onChangeItemNotes = this.onChangeItemNotes.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
       item_name: "",
       item_date: "",
       item_amount: "",
+      item_notes: "",
     };
   }
 
@@ -33,11 +35,18 @@ export default class Create extends Component {
     this.setState({
       item_date: e.target.value,
     });
+    console.log(e.target.value)
   }
 
   onChangeItemAmount(e) {
     this.setState({
       item_amount: e.target.value,
+    });
+  }
+
+  onChangeItemNotes(e) {
+    this.setState({
+      item_notes: e.target.value,
     });
   }
 
@@ -50,6 +59,7 @@ export default class Create extends Component {
       item_name: this.state.item_name,
       item_date: this.state.item_date,
       item_amount: this.state.item_amount,
+      item_notes: this.state.item_notes,
     };
 
     axios
@@ -61,6 +71,7 @@ export default class Create extends Component {
       item_name: "",
       item_date: "",
       item_amount: "",
+      item_notes: "",
     });
   }
 
@@ -82,7 +93,7 @@ export default class Create extends Component {
           <div className="form-group">
             <label>Date item added: </label>
             <input
-              type="text"
+              type="date"
               className="form-control"
               value={this.state.item_date}
               onChange={this.onChangeItemDate}
@@ -95,6 +106,15 @@ export default class Create extends Component {
               className="form-control"
               value={this.state.item_amount}
               onChange={this.onChangeItemAmount}
+            />
+          </div>
+          <div className="form-group">
+            <label>Other notes: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.item_notes}
+              onChange={this.onChangeItemNotes}
             />
           </div>
           <div className="form-group">

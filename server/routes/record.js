@@ -1,4 +1,6 @@
 const express = require("express");
+var ObjectId = require('mongodb').ObjectID;
+
 
 // recordRoutes is an instance of the express router.
 // We use it to define our routes.
@@ -27,6 +29,7 @@ recordRoutes.route("/record/add").post(function (req, res) {
     item_name: req.body.item_name,
     item_date: req.body.item_date,
     item_amount: req.body.item_amount,
+    item_notes: req.body.item_notes,
   };
   db_connect.collection("items").insertOne(myobj, function (err, res) {
     if (err) throw err;
@@ -36,12 +39,13 @@ recordRoutes.route("/record/add").post(function (req, res) {
 // This section will help you update a record by id.
 recordRoutes.route("/update/:id").post(function (req, res) {
   let db_connect = dbo.getDb("inventoryItems");
-  let myquery = { id: req.body.id };
+  let myquery = { _id: ObjectId(req.params.id) };
   let newvalues = {
     $set: {
         item_name: req.body.item_name,
         item_date: req.body.item_date,
         item_amount: req.body.item_amount,
+        item_notes: req.body.item_notes,
     },
   };
   db_connect
@@ -49,6 +53,17 @@ recordRoutes.route("/update/:id").post(function (req, res) {
     .updateOne(myquery, newvalues, function (err, res) {
       if (err) throw err;
       console.log("1 document updated");
+    });
+});
+
+// This section will help you get the record to update.
+recordRoutes.route("/record/:id").get(function (req, res) {
+  let db_connect = dbo.getDb("inventoryItems");
+  db_connect
+    .collection("items")
+    .findOne({_id: ObjectId(req.params.id)}, function (err, result) {
+      if (err) throw err;
+      res.json(result);
     });
 });
 

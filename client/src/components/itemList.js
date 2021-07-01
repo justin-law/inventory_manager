@@ -3,11 +3,14 @@ import React, { Component } from "react";
 import axios from 'axios';
 import { Link } from "react-router-dom";
 
+import './itemList.css'
+
 const Item = (props) => (
   <tr>
     <td>{props.item.item_name}</td>
     <td>{props.item.item_date}</td>
     <td>{props.item.item_amount}</td>
+    <td>{props.item.item_notes}</td>
     <td>
       <Link to={"/edit/" + props.item._id}>Edit</Link> |
       <a
@@ -74,10 +77,11 @@ export default class ItemList extends Component {
         <table className="table table-striped" style={{ marginTop: 20 }}>
           <thead>
             <tr>
-              <th>Item</th>
-              <th>Date Added</th>
-              <th>Amount</th>
-              <th>Action</th>
+              <th className="itemCol">Item</th>
+              <th className="dateCol">Date Added</th>
+              <th className="amountCol">Amount</th>
+              <th className="notesCol">Notes</th>
+              <th className="actionCol">Action</th>
             </tr>
           </thead>
           <tbody>{this.itemList()}</tbody>
