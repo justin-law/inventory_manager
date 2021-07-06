@@ -73,7 +73,7 @@ export default class ItemList extends Component {
   render() {
     return (
       <div>
-        <h3>Item List</h3>
+        <h3>Full Item Record</h3>
         <table className="table table-striped" style={{ marginTop: 20 }}>
           <thead>
             <tr>

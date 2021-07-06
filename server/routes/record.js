@@ -22,9 +22,22 @@ recordRoutes.route("/record").get(function (req, res) {
     });
 });
 
+// This section will get the sum of item amounts.
+recordRoutes.route("/sum").get(function (req, res) {
+  let db_connect = dbo.getDb("inventoryItems");
+  db_connect
+    .collection("items")
+    .aggregate([{"$group":{"_id":"$item_name","total":{"$sum": "$item_amount"}}}])
+    .toArray(function (err, result) {
+      if (err) throw err;
+      res.json(result);
+    });
+});
+
 // This section will help you create a new record.
 recordRoutes.route("/record/add").post(function (req, res) {
   let db_connect = dbo.getDb("inventoryItems");
+  req.body.item_amount = parseInt(req.body.item_amount);
   let myobj = {
     item_name: req.body.item_name,
     item_date: req.body.item_date,
@@ -40,6 +53,7 @@ recordRoutes.route("/record/add").post(function (req, res) {
 recordRoutes.route("/update/:id").post(function (req, res) {
   let db_connect = dbo.getDb("inventoryItems");
   let myquery = { _id: ObjectId(req.params.id) };
+  req.body.item_amount = parseInt(req.body.item_amount);
   let newvalues = {
     $set: {
         item_name: req.body.item_name,

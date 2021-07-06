@@ -8,18 +8,24 @@ import Navbar from "./components/navbar";
 import Edit from "./components/edit";
 import Create from "./components/create";
 import ItemList from "./components/itemList";
+import ItemSum from "./components/ItemSum";
 
 const App = () => {
   return (
+    
     <div>
       <Navbar />
-      <Route exact path="/">
-        <ItemList />
-      </Route>
-      <Route path="/edit/:id" component={Edit} />
-      <Route path="/create">
-        <Create />
-      </Route>
+      <div className="content">
+        <Route exact path="/">
+          <ItemSum />
+          <ItemList />
+        </Route>
+        <Route path="/edit/:id" component={Edit} />
+        <Route path="/create">
+          <Create />
+        </Route>
+      </div>
+      
     </div>
   );
 };
