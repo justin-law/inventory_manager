@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react'
+import './itemSum.css';
 
 const Item = (props) => (
     <tr>
@@ -34,9 +35,9 @@ function ItemSum() {
     }
 
     return (
-        <div>
+        <div className='all'>
         <h3>Item summary</h3>
-        <table className="table table-striped" style={{ marginTop: 20 }}>
+        <table className="table table-striped" >
           <thead>
             <tr>
               <th className="itemCol">Item</th>

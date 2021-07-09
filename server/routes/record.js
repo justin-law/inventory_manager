@@ -15,7 +15,7 @@ recordRoutes.route("/record").get(function (req, res) {
   let db_connect = dbo.getDb("inventoryItems");
   db_connect
     .collection("items")
-    .find({})
+    .find({}).sort({"item_date":-1}) 
     .toArray(function (err, result) {
       if (err) throw err;
       res.json(result);
@@ -27,7 +27,7 @@ recordRoutes.route("/sum").get(function (req, res) {
   let db_connect = dbo.getDb("inventoryItems");
   db_connect
     .collection("items")
-    .aggregate([{"$group":{"_id":"$item_name","total":{"$sum": "$item_amount"}}}])
+    .aggregate([{"$group":{"_id":"$item_name","total":{"$sum": "$item_amount"}}},{"$sort":{"total":-1}}])
     .toArray(function (err, result) {
       if (err) throw err;
       res.json(result);

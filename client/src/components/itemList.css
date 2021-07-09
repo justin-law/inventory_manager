@@ -1,6 +1,14 @@
 table {
     border: 1px solid black;
-    
+    table-layout: fixed;
+    width: 80%;
+    white-space: nowrap;
+}
+
+table td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 

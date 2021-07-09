@@ -72,9 +72,9 @@ export default class ItemList extends Component {
   // This following section will display the table with the items of individuals.
   render() {
     return (
-      <div>
+      <div className="app">
         <h3>Full Item Record</h3>
-        <table className="table table-striped" style={{ marginTop: 20 }}>
+        <table className="table table-striped" >
           <thead>
             <tr>
               <th className="itemCol">Item</th>

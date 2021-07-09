@@ -15,10 +15,17 @@ const App = () => {
     
     <div>
       <Navbar />
-      <div className="content">
+      <div>
         <Route exact path="/">
-          <ItemSum />
-          <ItemList />
+          <div className="content">
+            <div className="sum">
+              <ItemSum />
+            </div>
+            <div className="itemlist">
+              <ItemList />
+            </div>
+          </div>
+          
         </Route>
         <Route path="/edit/:id" component={Edit} />
         <Route path="/create">
