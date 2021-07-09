@@ -5,4 +5,4 @@ todo:
 
 search feature
 implement css grid display
-order sum in ascending
+
