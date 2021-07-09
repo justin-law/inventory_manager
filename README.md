@@ -1,4 +1,4 @@
- Inventory Manager
+<h1>Inventory Manager</h1>
 
 A MERN stack (MongoDB, Express, React, Node.js) application to keep track of a company's product inventory. Shows analytics of total product amounts and has a search function.
 
