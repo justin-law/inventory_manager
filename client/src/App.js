@@ -9,11 +9,12 @@ import Edit from "./components/edit";
 import Create from "./components/create";
 import ItemList from "./components/itemList";
 import ItemSum from "./components/ItemSum";
+import Search from "./components/search";
 
 const App = () => {
   return (
     
-    <div>
+    <div className="main">
       <Navbar />
       <div>
         <Route exact path="/">
@@ -30,6 +31,9 @@ const App = () => {
         <Route path="/edit/:id" component={Edit} />
         <Route path="/create">
           <Create />
+        </Route>
+        <Route path="/search">
+          <Search />
         </Route>
       </div>
       

@@ -1,4 +1,4 @@
-table {
+/* table {
     border: 1px solid black;
     table-layout: fixed;
     width: 80%;
@@ -9,8 +9,19 @@ table td {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+} */
+
+.app {
+    align-items: center;
+    justify-content: center;
+    display: block;
+    width: 90%;
+    margin: 50px;
 }
 
+h3 {
+    display: block;
+}
 
 .itemCol {
     width: 10%;

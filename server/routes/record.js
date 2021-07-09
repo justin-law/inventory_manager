@@ -91,4 +91,15 @@ recordRoutes.route("/:id").delete((req, res) => {
   });
 });
 
+// This section will allow for searching of specific items.
+recordRoutes.route("/record/:id").get(function (req, res) {
+  let db_connect = dbo.getDb("inventoryItems");
+  db_connect
+    .collection("items")
+    .findOne({_id: ObjectId(req.params.id)}, function (err, result) {
+      if (err) throw err;
+      res.json(result);
+    });
+});
+
 module.exports = recordRoutes;

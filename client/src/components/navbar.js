@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom";
 const Navbar = () => {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <NavLink className="navbar-brand" to="/">
           Inventory Manager - Justin Law
         </NavLink>
@@ -29,6 +29,11 @@ const Navbar = () => {
             <li className="nav-item">
               <NavLink className="nav-link" to="/create">
                 Create Item
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="nav-link" to="/search">
+                Search
               </NavLink>
             </li>
           </ul>

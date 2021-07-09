@@ -36,7 +36,7 @@ function ItemSum() {
 
     return (
         <div className='all'>
-        <h3>Item summary</h3>
+        <h3>Item Summary</h3>
         <table className="table table-striped" >
           <thead>
             <tr>
