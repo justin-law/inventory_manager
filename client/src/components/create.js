@@ -5,6 +5,8 @@ import axios from 'axios';
 // We import NavLink to utilize the react router.
 import { NavLink } from "react-router-dom";
 
+import "./create.css"
+
 export default class Create extends Component {
   // This is the constructor that stores the data.
   constructor(props) {
@@ -78,7 +80,7 @@ export default class Create extends Component {
   // This following section will display the form that takes the input from the user.
   render() {
     return (
-      <div style={{ marginTop: 20 }}>
+      <div className="create_all">
         <h3>Create New Item</h3>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
@@ -125,7 +127,7 @@ export default class Create extends Component {
             />
           </div>
         </form>
-        <NavLink className="create_return" to="/">
+        <NavLink className="btn btn-primary" role="button" aria-pressed="false" to="/">
           Back
         </NavLink>
       </div>

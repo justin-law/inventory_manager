@@ -84,7 +84,7 @@ recordRoutes.route("/record/:id").get(function (req, res) {
 // This section will help you delete a record
 recordRoutes.route("/:id").delete((req, res) => {
   let db_connect = dbo.getDb("inventoryItems");
-  var myquery = { id: req.body.id };
+  var myquery = {_id: ObjectId(req.params.id) };
   db_connect.collection("items").deleteOne(myquery, function (err, obj) {
     if (err) throw err;
     console.log("1 document deleted");
@@ -92,14 +92,15 @@ recordRoutes.route("/:id").delete((req, res) => {
 });
 
 // This section will allow for searching of specific items.
-recordRoutes.route("/record/:id").get(function (req, res) {
+recordRoutes.route("/search/:id").get(function (req, res) {
   let db_connect = dbo.getDb("inventoryItems");
   db_connect
-    .collection("items")
-    .findOne({_id: ObjectId(req.params.id)}, function (err, result) {
-      if (err) throw err;
-      res.json(result);
-    });
+  .collection("items")
+  .find({"item_name":req.params.id})
+  .toArray(function (err, result) {
+    if (err) throw err;
+    res.json(result);
+  });
 });
 
 module.exports = recordRoutes;
