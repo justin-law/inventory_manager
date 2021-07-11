@@ -32,6 +32,6 @@ Items can also be searched for and deleted on the search page.
 ## Todo
 Implement the search functionality.
 
-Improve the styling of the app.
-
 Add additional analytics using the MongoDB aggregation pipeline.
+
+do data validation on amount number and NaN

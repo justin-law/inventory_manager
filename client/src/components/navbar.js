@@ -4,6 +4,8 @@ import "bootstrap/dist/css/bootstrap.css";
 // We import NavLink to utilize the react router.
 import { NavLink } from "react-router-dom";
 
+import "./navbar.css"
+
 // Here, we display our Navbar
 const Navbar = () => {
   return (
