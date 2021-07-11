@@ -107,6 +107,7 @@ class Edit extends Component {
               className="form-control"
               value={this.state.item_name}
               onChange={this.onChangeItemName}
+              required
             />
           </div>
           <div className="form-group">
@@ -116,15 +117,17 @@ class Edit extends Component {
               className="form-control"
               value={this.state.item_date}
               onChange={this.onChangeItemDate}
+              required
             />
           </div>
           <div className="form-group">
             <label>Item amount: </label>
             <input
-              type="text"
+              type="number"
               className="form-control"
               value={this.state.item_amount}
               onChange={this.onChangeItemAmount}
+              required
             />
           </div>
           <div className="form-group">

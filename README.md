@@ -33,5 +33,3 @@ Items can also be searched for and deleted on the search page.
 Implement the search functionality.
 
 Add additional analytics using the MongoDB aggregation pipeline.
-
-do data validation on amount number and NaN
