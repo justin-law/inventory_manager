@@ -11,6 +11,8 @@ import ItemList from "./components/itemList";
 import ItemSum from "./components/ItemSum";
 import Search from "./components/search";
 
+import "./App.css"
+
 const App = () => {
   return (
     

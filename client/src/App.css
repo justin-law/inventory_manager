@@ -1,14 +1,24 @@
 .content {
     display: grid;
-    grid-template-columns: 0.5fr 1fr 0.5fr;
+    grid-template-columns: 0.25fr 1.5fr 0.25fr;
     grid-template-rows: 1fr 1fr;
-    gap: 0px 0px;
+    gap: 50px 0px;
     grid-auto-flow: row;
     grid-template-areas:
       ". sum ."
       ". itemlist .";
   }
   
-  .sum { grid-area: sum; }
+  .sum {
+    grid-area: sum; 
+  }
   
-  .itemlist { grid-area: itemlist; }
+  .itemlist {
+    grid-area: itemlist; 
+  }
+
+  .main {
+    /* height: 1000px;
+    background: rgb(34,193,195);
+background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);   */
+  }

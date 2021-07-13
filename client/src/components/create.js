@@ -80,7 +80,8 @@ export default class Create extends Component {
   // This following section will display the form that takes the input from the user.
   render() {
     return (
-      <div className="create_all">
+      <div className="create-content">
+        <div className="create-card">
         <h3>Create New Item</h3>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
@@ -134,6 +135,8 @@ export default class Create extends Component {
           Back
         </NavLink>
       </div>
+      </div>
+      
     );
   }
 }

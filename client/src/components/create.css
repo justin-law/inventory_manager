@@ -1,15 +1,25 @@
-.create_all {
+.create-card{
     align-items: center;
     justify-content: center;
     display: block;
-    width: 90%;
-    margin-left: 50px;
+    /* width: 90%; 
+    margin-left: 50px; */
     margin-top: 50px;
     background-color: rgb(247, 247, 247);
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     padding: 10px 20px;
+    grid-area: create_all;
 }
+
+.create-content {
+    display: grid; 
+    grid-template-columns: 0.25fr 1.5fr 0.25fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      ". create_all ."; 
+  }
 
 .btn {
     margin-top: 10px;
