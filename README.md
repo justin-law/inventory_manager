@@ -33,3 +33,7 @@ Items can also be searched for and deleted on the search page.
 Implement the search functionality.
 
 Add additional analytics using the MongoDB aggregation pipeline.
+
+Separate item inflow and outflow pages
+
+Have homepage show 5 most recent inflow and outflow records and show inflow-outflow item total
