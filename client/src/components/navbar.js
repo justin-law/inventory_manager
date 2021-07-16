@@ -9,7 +9,7 @@ import "./navbar.css"
 // Here, we display our Navbar
 const Navbar = () => {
   return (
-    <div>
+    <div className="navbar-main">
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <NavLink className="navbar-brand" to="/">
           Inventory Manager - Justin Law

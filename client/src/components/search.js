@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react'
 import { Link } from "react-router-dom";
+import "./search.css"
 
 const Item = (props) => (
     <tr>
@@ -46,8 +47,11 @@ function Search() {
 
     return (
         <div>
+          <div className="search-topcard">
             <h3>Search</h3>
             <p>Type in the item name and it will return all records with the exact item name</p>
+          </div>
+            
             <form >
 
             </form>

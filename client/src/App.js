@@ -1,15 +1,15 @@
 import React from "react";
 
 // We use Route in order to define the different routes of our application
-import { Route } from "react-router-dom";
+import { Route, Router } from "react-router-dom";
 
 // We import all the components we need in our app
 import Navbar from "./components/navbar";
 import Edit from "./components/edit";
 import Create from "./components/create";
-import ItemList from "./components/itemList";
-import ItemSum from "./components/ItemSum";
+import Inflow from "./components/Inflow"
 import Search from "./components/search";
+import LeftNav from "./components/LeftNav";
 
 import "./App.css"
 
@@ -17,28 +17,51 @@ const App = () => {
   return (
     
     <div className="main">
-      <Navbar />
-      <div>
+        <div>
+          <Navbar />
+        </div>
+
         <Route exact path="/">
           <div className="content">
-            <div className="sum">
-              <ItemSum />
+            <div className="left-nav">
+              <LeftNav /> 
             </div>
-            <div className="itemlist">
-              <ItemList />
+            <div className="center">
+              <Inflow />
             </div>
           </div>
-          
         </Route>
+        
         <Route path="/edit/:id" component={Edit} />
         <Route path="/create">
-          <Create />
+          <div className="grid-create">
+            <Create />
+          </div>
+        </Route>
+        <Route path="/inflow">
+          <div className='content'>
+            <div className="left-nav">
+              <LeftNav />
+            </div>
+          </div>
+        </Route>
+        <Route path="/outflow">
+          <div className='content'>
+            <div className="left-nav">
+              <LeftNav />
+            </div>
+          </div>
         </Route>
         <Route path="/search">
-          <Search />
+          <div className='content'>
+            <div className="left-nav">
+              <LeftNav />
+            </div>
+            <div className="center">
+              <Search />
+            </div>
+          </div>
         </Route>
-      </div>
-      
     </div>
   );
 };
