@@ -4,7 +4,7 @@ import axios from 'axios';
 import { withRouter } from "react-router";
 import "./edit.css";
 
-class Edit extends Component {
+class OutEdit extends Component {
   // This is the constructor that stores the data.
   constructor(props) {
     super(props);
@@ -26,7 +26,7 @@ class Edit extends Component {
   // This will get the record based on the id from the database.
   componentDidMount() {
     axios
-      .get("http://localhost:3000/inflow/record/" + this.props.match.params.id)
+      .get("http://localhost:3000/outflow/record/" + this.props.match.params.id)
       .then((response) => {
         this.setState({
           item_name: response.data.item_name,
@@ -79,7 +79,7 @@ class Edit extends Component {
     // This will send a post request to update the data in the database.
     axios
       .post(
-        "http://localhost:3000/inflow/update/" + this.props.match.params.id,
+        "http://localhost:3000/outflow/update/" + this.props.match.params.id,
         newEditedItem
       )
       .then((res) => console.log(res.data));
@@ -92,7 +92,7 @@ class Edit extends Component {
       item_notes: "",
     });
 
-    this.props.history.push("/inflow");
+    this.props.history.push("/outflow");
   }
 
   // This following section will display the update-form that takes the input from the user to update the data.
@@ -159,4 +159,4 @@ class Edit extends Component {
 // You can get access to the history object's properties and the closest <Route>'s match via the withRouter
 // higher-order component. This makes it easier for us to edit our records.
 
-export default withRouter(Edit);
+export default withRouter(OutEdit);

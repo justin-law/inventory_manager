@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 
 import "./create.css"
 
-export default class Create extends Component {
+export default class OutCreate extends Component {
   // This is the constructor that stores the data.
   constructor(props) {
     super(props);
@@ -65,7 +65,7 @@ export default class Create extends Component {
     };
 
     axios
-      .post("http://localhost:3000/inflow/record/add", newitem)
+      .post("http://localhost:3000/outflow/record/add", newitem)
       .then((res) => console.log(res.data));
 
     // We will empty the state after posting the data to the database
@@ -82,7 +82,7 @@ export default class Create extends Component {
     return (
       <div className="create-content">
         <div className="create-card">
-        <h3>Create New Item</h3>
+        <h3>Create New Item Use</h3>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
             <label>Item name: </label>
@@ -131,7 +131,7 @@ export default class Create extends Component {
             />
           </div>
         </form>
-        <NavLink className="btn btn-primary" role="button" aria-pressed="false" to="/inflow">
+        <NavLink className="btn btn-primary" role="button" aria-pressed="false" to="/outflow">
           Back
         </NavLink>
       </div>

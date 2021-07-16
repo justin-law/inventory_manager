@@ -1,9 +1,8 @@
+import "./itemList.css"
 import React, { Component } from "react";
 
 import axios from 'axios';
 import { Link } from "react-router-dom";
-
-import './itemList.css'
 
 const Item = (props) => (
   <tr>
@@ -12,7 +11,7 @@ const Item = (props) => (
     <td>{props.item.item_amount}</td>
     <td>{props.item.item_notes}</td>
     <td>
-      <Link to={"/inflow/edit/" + props.item._id}>Edit</Link> |
+      <Link to={"/outflow/edit/" + props.item._id}>Edit</Link> |
       <a
         href="/"
         onClick={() => {
@@ -25,7 +24,7 @@ const Item = (props) => (
   </tr>
 );
 
-export default class ItemList extends Component {
+export default class OutList extends Component {
   // This is the constructor that shall store our data retrieved from the database
   constructor(props) {
     super(props);
@@ -36,7 +35,7 @@ export default class ItemList extends Component {
   // This method will get the data from the database.
   componentDidMount() {
     axios
-      .get("http://localhost:3000/inflow/record/")
+      .get("http://localhost:3000/outflow/record/")
       .then((response) => {
         this.setState({ items: response.data });
       })
@@ -47,7 +46,7 @@ export default class ItemList extends Component {
 
   // This method will delete a record based on the method
   deleteItem(id) {
-    axios.delete("http://localhost:3000/inflow/" + id).then((response) => {
+    axios.delete("http://localhost:3000/outflow/" + id).then((response) => {
       console.log(response.data);
     });
 
@@ -76,7 +75,7 @@ export default class ItemList extends Component {
         
       
       <div className="app">
-      <h3>Full Inflow Item Record</h3>
+      <h3>Full Outflow Item Record</h3>
         <table className="table table-striped" >
           <thead>
             <tr>

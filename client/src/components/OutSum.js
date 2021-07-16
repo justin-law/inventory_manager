@@ -9,13 +9,13 @@ const Item = (props) => (
     </tr>
 );
 
-function ItemSum() {
+function OutSum() {
     const [items, setItems] = useState({
         items: []
     });
 
     useEffect(() => {
-        axios.get("http://localhost:3000/inflow/sum/")
+        axios.get("http://localhost:3000/outflow/sum/")
         .then((response) =>{
             setItems({items: response.data});
         }).catch(function (error) {
@@ -36,7 +36,7 @@ function ItemSum() {
 
     return (
         <div className='all'>
-        <h3>Inflow Item Summary</h3>
+        <h3>Outflow Item Summary</h3>
         <table className="table table-striped" >
           <thead>
             <tr>
@@ -50,4 +50,4 @@ function ItemSum() {
     )
 }
 
-export default ItemSum
+export default OutSum

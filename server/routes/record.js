@@ -10,11 +10,11 @@ const recordRoutes = express.Router();
 //This will help us connect to the database
 const dbo = require("../db/conn");
 
-// This section will help you get a list of all the records.
-recordRoutes.route("/record").get(function (req, res) {
+// This section will help you get a list of all the inflow records.
+recordRoutes.route("/inflow/record").get(function (req, res) {
   let db_connect = dbo.getDb("inventoryItems");
   db_connect
-    .collection("items")
+    .collection("inflow")
     .find({}).sort({"item_date":-1}) 
     .toArray(function (err, result) {
       if (err) throw err;
@@ -22,11 +22,23 @@ recordRoutes.route("/record").get(function (req, res) {
     });
 });
 
-// This section will get the sum of item amounts.
-recordRoutes.route("/sum").get(function (req, res) {
+// This section will help you get a list of all the outflow records.
+recordRoutes.route("/outflow/record").get(function (req, res) {
   let db_connect = dbo.getDb("inventoryItems");
   db_connect
-    .collection("items")
+    .collection("outflow")
+    .find({}).sort({"item_date":-1}) 
+    .toArray(function (err, result) {
+      if (err) throw err;
+      res.json(result);
+    });
+});
+
+// This section will get the sum of inflow item amounts.
+recordRoutes.route("/inflow/sum").get(function (req, res) {
+  let db_connect = dbo.getDb("inventoryItems");
+  db_connect
+    .collection("inflow")
     .aggregate([{"$group":{"_id":"$item_name","total":{"$sum": "$item_amount"}}},{"$sort":{"total":-1}}])
     .toArray(function (err, result) {
       if (err) throw err;
@@ -34,8 +46,20 @@ recordRoutes.route("/sum").get(function (req, res) {
     });
 });
 
-// This section will help you create a new record.
-recordRoutes.route("/record/add").post(function (req, res) {
+// This section will get the sum of outflow item amounts.
+recordRoutes.route("/outflow/sum").get(function (req, res) {
+  let db_connect = dbo.getDb("inventoryItems");
+  db_connect
+    .collection("outflow")
+    .aggregate([{"$group":{"_id":"$item_name","total":{"$sum": "$item_amount"}}},{"$sort":{"total":-1}}])
+    .toArray(function (err, result) {
+      if (err) throw err;
+      res.json(result);
+    });
+});
+
+// This section will help you create a new inflow record.
+recordRoutes.route("/inflow/record/add").post(function (req, res) {
   let db_connect = dbo.getDb("inventoryItems");
   req.body.item_amount = parseInt(req.body.item_amount);
   let myobj = {
@@ -44,13 +68,28 @@ recordRoutes.route("/record/add").post(function (req, res) {
     item_amount: req.body.item_amount,
     item_notes: req.body.item_notes,
   };
-  db_connect.collection("items").insertOne(myobj, function (err, res) {
+  db_connect.collection("inflow").insertOne(myobj, function (err, res) {
     if (err) throw err;
   });
 });
 
-// This section will help you update a record by id.
-recordRoutes.route("/update/:id").post(function (req, res) {
+// This section will help you create a new outflow record.
+recordRoutes.route("/outflow/record/add").post(function (req, res) {
+  let db_connect = dbo.getDb("inventoryItems");
+  req.body.item_amount = parseInt(req.body.item_amount);
+  let myobj = {
+    item_name: req.body.item_name,
+    item_date: req.body.item_date,
+    item_amount: req.body.item_amount,
+    item_notes: req.body.item_notes,
+  };
+  db_connect.collection("outflow").insertOne(myobj, function (err, res) {
+    if (err) throw err;
+  });
+});
+
+// This section will help you update an inflow record by id.
+recordRoutes.route("/inflow/update/:id").post(function (req, res) {
   let db_connect = dbo.getDb("inventoryItems");
   let myquery = { _id: ObjectId(req.params.id) };
   req.body.item_amount = parseInt(req.body.item_amount);
@@ -63,29 +102,71 @@ recordRoutes.route("/update/:id").post(function (req, res) {
     },
   };
   db_connect
-    .collection("items")
+    .collection("inflow")
     .updateOne(myquery, newvalues, function (err, res) {
       if (err) throw err;
       console.log("1 document updated");
     });
 });
 
-// This section will help you get the record to update.
-recordRoutes.route("/record/:id").get(function (req, res) {
+// This section will help you update an outflow record by id.
+recordRoutes.route("/outflow/update/:id").post(function (req, res) {
+  let db_connect = dbo.getDb("inventoryItems");
+  let myquery = { _id: ObjectId(req.params.id) };
+  req.body.item_amount = parseInt(req.body.item_amount);
+  let newvalues = {
+    $set: {
+        item_name: req.body.item_name,
+        item_date: req.body.item_date,
+        item_amount: req.body.item_amount,
+        item_notes: req.body.item_notes,
+    },
+  };
+  db_connect
+    .collection("outflow")
+    .updateOne(myquery, newvalues, function (err, res) {
+      if (err) throw err;
+      console.log("1 document updated");
+    });
+});
+
+// This section will help you get the record to update for inflow.
+recordRoutes.route("/inflow/record/:id").get(function (req, res) {
   let db_connect = dbo.getDb("inventoryItems");
   db_connect
-    .collection("items")
+    .collection("inflow")
     .findOne({_id: ObjectId(req.params.id)}, function (err, result) {
       if (err) throw err;
       res.json(result);
     });
 });
 
-// This section will help you delete a record
-recordRoutes.route("/:id").delete((req, res) => {
+// This section will help you get the record to update for outflow.
+recordRoutes.route("/outflow/record/:id").get(function (req, res) {
+  let db_connect = dbo.getDb("inventoryItems");
+  db_connect
+    .collection("outflow")
+    .findOne({_id: ObjectId(req.params.id)}, function (err, result) {
+      if (err) throw err;
+      res.json(result);
+    });
+});
+
+// This section will help you delete an inflow record
+recordRoutes.route("/inflow/:id").delete((req, res) => {
   let db_connect = dbo.getDb("inventoryItems");
   var myquery = {_id: ObjectId(req.params.id) };
-  db_connect.collection("items").deleteOne(myquery, function (err, obj) {
+  db_connect.collection("inflow").deleteOne(myquery, function (err, obj) {
+    if (err) throw err;
+    console.log("1 document deleted");
+  });
+});
+
+// This section will help you delete an outflow record
+recordRoutes.route("/outflow/:id").delete((req, res) => {
+  let db_connect = dbo.getDb("inventoryItems");
+  var myquery = {_id: ObjectId(req.params.id) };
+  db_connect.collection("outflow").deleteOne(myquery, function (err, obj) {
     if (err) throw err;
     console.log("1 document deleted");
   });
@@ -95,7 +176,7 @@ recordRoutes.route("/:id").delete((req, res) => {
 recordRoutes.route("/search/:id").get(function (req, res) {
   let db_connect = dbo.getDb("inventoryItems");
   db_connect
-  .collection("items")
+  .collection("inflow")
   .find({"item_name":req.params.id})
   .toArray(function (err, result) {
     if (err) throw err;

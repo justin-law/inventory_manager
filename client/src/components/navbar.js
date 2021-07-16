@@ -29,8 +29,13 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <NavLink className="nav-link" to="/create">
-                Create Item
+              <NavLink className="nav-link" to="/inflow/create">
+                Create Item In
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/outflow/create">
+                Create Item Out
               </NavLink>
             </li>
             <li>

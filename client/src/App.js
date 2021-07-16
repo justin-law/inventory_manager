@@ -10,6 +10,9 @@ import Create from "./components/create";
 import Inflow from "./components/Inflow"
 import Search from "./components/search";
 import LeftNav from "./components/LeftNav";
+import Outflow from "./components/Outflow";
+import OutCreate from "./components/OutCreate";
+import OutEdit from "./components/OutEdit";
 
 import "./App.css"
 
@@ -24,7 +27,7 @@ const App = () => {
         <Route exact path="/">
           <div className="content">
             <div className="left-nav">
-              <LeftNav /> 
+              <LeftNav selected='1' /> 
             </div>
             <div className="center">
               <Inflow />
@@ -32,30 +35,42 @@ const App = () => {
           </div>
         </Route>
         
-        <Route path="/edit/:id" component={Edit} />
-        <Route path="/create">
+        <Route path="/inflow/edit/:id" component={Edit} />
+        <Route path="/outflow/edit/:id" component={OutEdit} />
+        <Route path="/inflow/create">
           <div className="grid-create">
             <Create />
           </div>
         </Route>
-        <Route path="/inflow">
+        <Route path="/outflow/create">
+          <div className="grid-create">
+            <OutCreate />
+          </div>
+        </Route>
+        <Route exact path="/inflow">
           <div className='content'>
             <div className="left-nav">
-              <LeftNav />
+              <LeftNav  selected='2'/>
+            </div>
+            <div className="center">
+              <Inflow />
             </div>
           </div>
         </Route>
-        <Route path="/outflow">
+        <Route exact path="/outflow">
           <div className='content'>
             <div className="left-nav">
-              <LeftNav />
+              <LeftNav selected='3' />
+            </div>
+            <div className="center">
+              <Outflow />
             </div>
           </div>
         </Route>
         <Route path="/search">
           <div className='content'>
             <div className="left-nav">
-              <LeftNav />
+              <LeftNav selected='4'/>
             </div>
             <div className="center">
               <Search />
