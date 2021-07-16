@@ -13,6 +13,7 @@ import LeftNav from "./components/LeftNav";
 import Outflow from "./components/Outflow";
 import OutCreate from "./components/OutCreate";
 import OutEdit from "./components/OutEdit";
+import HomeContent from "./components/HomeContent";
 
 import "./App.css"
 
@@ -30,7 +31,7 @@ const App = () => {
               <LeftNav selected='1' /> 
             </div>
             <div className="center">
-              <Inflow />
+              <HomeContent />
             </div>
           </div>
         </Route>
