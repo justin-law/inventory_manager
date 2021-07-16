@@ -30,6 +30,8 @@ Edit or delete records by clicking the corresponding buttons on the table in the
 Items can also be searched for and deleted on the search page. 
 
 ## Todo
+Decide on color scheme and add color to navigation panel
+
 Implement the search functionality.
 
 Add additional analytics using the MongoDB aggregation pipeline.
@@ -37,3 +39,5 @@ Add additional analytics using the MongoDB aggregation pipeline.
 Separate item inflow and outflow pages
 
 Have homepage show 5 most recent inflow and outflow records and show inflow-outflow item total
+
+Add item amount adjustment if inflow minus outflow doesn't match actual inventory
