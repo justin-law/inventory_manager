@@ -3,6 +3,9 @@ import React, {useState, useEffect} from 'react'
 import { Link } from "react-router-dom";
 import "./search.css"
 
+// We import bootstrap to make our application look better.
+import "bootstrap/dist/css/bootstrap.css";
+
 const Item = (props) => (
     <tr>
       <td>{props.item.item_name}</td>
@@ -38,10 +41,9 @@ function Search() {
             console.log(error);
         });
     }, []);
-
+    
     function onSubmit(e){
         e.preventDefault();
-    
         
     }
 
@@ -50,13 +52,23 @@ function Search() {
           <div className="search-topcard">
             <h3>Search</h3>
             <p>Type in the item name and it will return all records with the exact item name</p>
-          </div>
+          
             
             <form >
-
+              <label for="fname" class="form-label">Enter Query:</label>
+              <input type="text" class="form-control" id="searchterm" name="searchterm"></input>
+              <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-3">Search</button>
+              </div>
             </form>
+
+          </div>
+
+          <div className="search-results">
+            <h3>Results</h3>
+          </div>
         </div>
-    )
+    );
 }
 
 export default Search
