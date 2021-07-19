@@ -37,7 +37,6 @@ export default class OutCreate extends Component {
     this.setState({
       item_date: e.target.value,
     });
-    console.log(e.target.value)
   }
 
   onChangeItemAmount(e) {

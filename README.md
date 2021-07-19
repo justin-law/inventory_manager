@@ -31,8 +31,6 @@ Items can also be searched for and deleted on the search page.
 
 ## Todo
 
-Implement the search functionality.
-
 Add additional analytics using the MongoDB aggregation pipeline.
 
 Have homepage show 5 most recent inflow and outflow records and show inflow-outflow item total

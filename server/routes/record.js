@@ -173,7 +173,7 @@ recordRoutes.route("/outflow/:id").delete((req, res) => {
 });
 
 // This section will allow for searching of specific items.
-recordRoutes.route("/search/:id").get(function (req, res) {
+recordRoutes.route("/inflow/search/:id").get(function (req, res) {
   let db_connect = dbo.getDb("inventoryItems");
   db_connect
   .collection("inflow")
@@ -183,5 +183,17 @@ recordRoutes.route("/search/:id").get(function (req, res) {
     res.json(result);
   });
 });
+
+recordRoutes.route("/outflow/search/:id").get(function (req, res) {
+  let db_connect = dbo.getDb("inventoryItems");
+  db_connect
+  .collection("outflow")
+  .find({"item_name":req.params.id})
+  .toArray(function (err, result) {
+    if (err) throw err;
+    res.json(result);
+  });
+});
+
 
 module.exports = recordRoutes;

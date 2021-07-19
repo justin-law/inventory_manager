@@ -27,53 +27,84 @@ const Item = (props) => (
   );
   
 function Search() {
-    const [items, setItems] = useState({
-        items: []
-    });
+  const [inItems, setInItems] = useState({
+      items: []
+  });
 
-    const [query, setQuery] = useState("");
+  const [outItems, setOutItems] = useState({
+      items: []
+  });
 
-    // useEffect(() => {
-    //     axios.get("http://localhost:3000/search/" + query)
-    //     .then((response) =>{
-    //         setItems({items: response.data});
-    //     }).catch(function (error) {
-    //         console.log(error);
-    //     });
-    // }, []);
+  const [query, setQuery] = useState("");
 
-    function getQueryData() {
-      axios.get('http://localhost:3000/inflow/sum/')
-        .then((response) =>{
-            setItems({items: response.data});
-            console.log(response.data);
-            console.log(items);
-        }).catch(function (error) {
-            console.log(error);
-        });
+  const [showIn, setShowIn] = useState(false);
 
-    };
+  const [showOut, setShowOut] = useState(false);
 
-    function onSubmit(e){
-        e.preventDefault();
-        alert(query);
-        getQueryData();
-    }
+  const [submitted, setSubmitted] = useState(false);
 
-    function handleChange(e) {
-      setQuery(e.target.value);
-    }
-
-
-    function itemList() {
-      return items.items.map((currentitem) => {
-          return (
-          <Item
-          key={currentitem._id}
-          item={currentitem}
-          />
-          );
+  function getQueryData() {
+    axios.get('http://localhost:3000/inflow/search/' + query)
+      .then((response) =>{
+          setInItems({items: response.data});
+          if (response.data.length == 0) {
+            setShowIn(false);
+          } else {
+            setShowIn(true);
+          }
+      }).catch(function (error) {
+          console.log(error);
       });
+
+    axios.get('http://localhost:3000/outflow/search/' + query)
+      .then((response) =>{
+          setOutItems({items: response.data});
+          if (response.data.length == 0) {
+            setShowOut(false);
+          } else {
+            setShowOut(true);
+          }
+      }).catch(function (error) {
+          console.log(error);
+      });
+
+  };
+
+  function onSubmit(e){
+      e.preventDefault();
+      if (query != "") {
+        getQueryData();
+        setSubmitted(true);
+      } else {
+        console.log('must have query')
+      }
+  }
+
+  function handleChange(e) {
+    setQuery(e.target.value);
+  }
+
+
+  function inItemList() {
+    return inItems.items.map((currentitem) => {
+        return (
+        <Item
+        key={currentitem._id}
+        item={currentitem}
+        />
+        );
+    });
+  }
+
+  function outItemList() {
+    return outItems.items.map((currentitem) => {
+        return (
+        <Item
+        key={currentitem._id}
+        item={currentitem}
+        />
+        );
+    });
   }
 
     return (
@@ -85,26 +116,60 @@ function Search() {
             
             <form onSubmit={onSubmit}>
               <label htmlFor="fname" className="form-label">Enter Query:</label>
-              <input type="text" value={query} onChange={handleChange} className="form-control" id="searchterm" name="searchterm"></input>
+              <input type="text" value={query} onChange={handleChange} className="form-control" id="searchterm" name="searchterm" required></input>
               <div className="col-auto">
                 <button type="submit" className="btn btn-primary mb-3">Search</button>
               </div>
             </form>
-
           </div>
 
-          <div className="search-results">
-            <h3>Results</h3>
+          {submitted && !showIn && (
+            <div className='search-results'>
+              <h3>No Inflow Records Found</h3>
+            </div>
+          )}
+
+          {showIn && (
+            <div className="search-results">
+            <h3>Inflow Results</h3>
             <table className="table table-striped" >
               <thead>
                 <tr>
                   <th className="itemCol">Item</th>
-                  <th className="numCol">Total amount</th>
+                  <th className="dateCol">Date Added</th>
+                  <th className="amountCol">Amount</th>
+                  <th className="notesCol">Notes</th>
+                  <th className="actionCol">Action</th>
                 </tr>
               </thead>
-              <tbody>{itemList()}</tbody>
+              <tbody>{inItemList()}</tbody>
             </table>
           </div>
+          )}
+          
+          {submitted && !showOut && (
+            <div className='search-results'>
+              <h3>No Outflow Records Found</h3>
+            </div>
+          )}
+
+          {showOut && (
+            <div className="search-results">
+              <h3>Outflow Results</h3>
+              <table className="table table-striped" >
+                <thead>
+                  <tr>
+                    <th className="itemCol">Item</th>
+                    <th className="dateCol">Date Added</th>
+                    <th className="amountCol">Amount</th>
+                    <th className="notesCol">Notes</th>
+                    <th className="actionCol">Action</th>
+                  </tr>
+                </thead>
+                <tbody>{outItemList()}</tbody>
+              </table>
+            </div>
+          )}
         </div>
     );
 }
