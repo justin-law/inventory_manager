@@ -15,7 +15,7 @@ const Item = (props) => (
       <td>
         <Link to={"/edit/" + props.item._id}>Edit</Link> |
         <a
-          href="/"
+          href="/search"
           onClick={() => {
             props.deleteItem(props.item._id);
           }}
@@ -33,19 +33,48 @@ function Search() {
 
     const [query, setQuery] = useState("");
 
-    useEffect(() => {
-        axios.get("http://localhost:3000/search/" + query)
+    // useEffect(() => {
+    //     axios.get("http://localhost:3000/search/" + query)
+    //     .then((response) =>{
+    //         setItems({items: response.data});
+    //     }).catch(function (error) {
+    //         console.log(error);
+    //     });
+    // }, []);
+
+    function getQueryData() {
+      axios.get('http://localhost:3000/inflow/sum/')
         .then((response) =>{
             setItems({items: response.data});
+            console.log(response.data);
+            console.log(items);
         }).catch(function (error) {
             console.log(error);
         });
-    }, []);
-    
+
+    };
+
     function onSubmit(e){
         e.preventDefault();
-        
+        alert(query);
+        getQueryData();
     }
+
+    function handleChange(e) {
+      setQuery(e.target.value);
+    }
+
+
+    function itemList() {
+      return items.items.map((currentitem) => {
+          return (
+          <Item
+          key={currentitem._id}
+          item={currentitem}
+          />
+          );
+      });
+  }
 
     return (
         <div>
@@ -54,11 +83,11 @@ function Search() {
             <p>Type in the item name and it will return all records with the exact item name</p>
           
             
-            <form >
-              <label for="fname" class="form-label">Enter Query:</label>
-              <input type="text" class="form-control" id="searchterm" name="searchterm"></input>
-              <div class="col-auto">
-                <button type="submit" class="btn btn-primary mb-3">Search</button>
+            <form onSubmit={onSubmit}>
+              <label htmlFor="fname" className="form-label">Enter Query:</label>
+              <input type="text" value={query} onChange={handleChange} className="form-control" id="searchterm" name="searchterm"></input>
+              <div className="col-auto">
+                <button type="submit" className="btn btn-primary mb-3">Search</button>
               </div>
             </form>
 
@@ -66,6 +95,15 @@ function Search() {
 
           <div className="search-results">
             <h3>Results</h3>
+            <table className="table table-striped" >
+              <thead>
+                <tr>
+                  <th className="itemCol">Item</th>
+                  <th className="numCol">Total amount</th>
+                </tr>
+              </thead>
+              <tbody>{itemList()}</tbody>
+            </table>
           </div>
         </div>
     );

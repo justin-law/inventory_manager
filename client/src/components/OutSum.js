@@ -28,6 +28,7 @@ function OutSum() {
         return items.items.map((currentitem) => {
             return (
             <Item
+            key={currentitem._id}
             item={currentitem}
             />
             );
