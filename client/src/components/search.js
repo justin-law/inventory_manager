@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import { Link } from "react-router-dom";
 import "./search.css"
 
@@ -13,11 +13,11 @@ const Item = (props) => (
       <td>{props.item.item_amount}</td>
       <td>{props.item.item_notes}</td>
       <td>
-        <Link to={"/edit/" + props.item._id}>Edit</Link> |
+        <Link to={"/" + props.action + "/edit/" + props.item._id}>Edit</Link> |
         <a
           href="/search"
           onClick={() => {
-            props.deleteItem(props.item._id);
+            props.deleteItem(props.action, props.item._id);
           }}
         >
           Delete
@@ -72,7 +72,7 @@ function Search() {
 
   function onSubmit(e){
       e.preventDefault();
-      if (query != "") {
+      if (query !== "") {
         getQueryData();
         setSubmitted(true);
       } else {
@@ -89,8 +89,10 @@ function Search() {
     return inItems.items.map((currentitem) => {
         return (
         <Item
+        action="inflow"
         key={currentitem._id}
         item={currentitem}
+        deleteItem={deleteItem}
         />
         );
     });
@@ -100,10 +102,19 @@ function Search() {
     return outItems.items.map((currentitem) => {
         return (
         <Item
+        action="outflow"
         key={currentitem._id}
         item={currentitem}
+        deleteItem={deleteItem}
         />
         );
+    });
+  };
+
+  // This method will delete a record based on the method
+  function deleteItem(action, id) {
+    axios.delete("http://localhost:3000/" + action + "/" + id).then((response) => {
+      console.log(response.data);
     });
   }
 
