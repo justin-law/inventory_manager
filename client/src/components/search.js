@@ -47,7 +47,7 @@ function Search() {
     axios.get('http://localhost:3000/inflow/search/' + query)
       .then((response) =>{
           setInItems({items: response.data});
-          if (response.data.length == 0) {
+          if (response.data.length === 0) {
             setShowIn(false);
           } else {
             setShowIn(true);
@@ -59,7 +59,7 @@ function Search() {
     axios.get('http://localhost:3000/outflow/search/' + query)
       .then((response) =>{
           setOutItems({items: response.data});
-          if (response.data.length == 0) {
+          if (response.data.length === 0) {
             setShowOut(false);
           } else {
             setShowOut(true);
