@@ -10,45 +10,65 @@ const Item = (props) => (
 );
 
 function GrandTotal() {
-    // const [Initems, setInItems] = useState({
-    //     items: []
-    // });
+    const [inItems, setInItems] = useState({
+        items: []
+    });
 
-    // const [Outitems, setOutItems] = useState({
-    //     items: []
-    // });
+    const [outItems, setOutItems] = useState({
+        items: []
+    });
 
     const [grandTotal, setGT] = useState({
         items: []
     });
 
     useEffect(() => {
-        // axios.get("http://localhost:3000/inflow/sum/")
-        // .then((response) =>{
-        //     setInItems({items: response.data});
-        // }).catch(function (error) {
-        //     console.log(error);
-        // });
-
-        // axios.get("http://localhost:3000/outflow/sum/")
-        // .then((response) =>{
-        //     setOutItems({items: response.data});
-        // }).catch(function (error) {
-        //     console.log(error);
-        // });
-
-        axios.get("http://localhost:3000/outflow/sum/")
+        axios.get("http://localhost:3000/inflow/sum/")
         .then((response) =>{
-            setGT({items: response.data});
+            //console.log(inItems)
+            setInItems({items: response.data});
         }).catch(function (error) {
             console.log(error);
         });
 
+        axios.get("http://localhost:3000/outflow/sum/")
+        .then((response) =>{
+            setOutItems({items: response.data});
+        }).catch(function (error) {
+            console.log(error);
+        });
+
+
+        const tempGT = new Map();
+        inItems.items.forEach(element => {
+            console.log(element)
+            tempGT.set(element._id, element.total);
+        });
+        outItems.items.forEach(element => {
+            if (tempGT.has(element._id)){
+                tempGT.set(element._id, tempGT.get(element._id)-(element.total));
+            } else {
+                tempGT.set(element._id, -(element.total));
+            }
+        });
+
+        const tempArray = [];
+        for (const [key, value] of tempGT.entries()) {
+            
+            const item = {
+                _id: key,
+                total: value
+            }
+            tempArray.push(item);
+        }
+
+        setGT({items: tempArray});
+
     }, []);
 
       // This method will map out the users on the table
-      function itemList() {
-        return grandTotal.items.map((currentitem) => {
+      function itemList(collection) {
+        return collection.items.map((currentitem) => {
             return (
             <Item
             key={currentitem._id}
@@ -69,7 +89,7 @@ function GrandTotal() {
                     <th className="numCol">Total amount</th>
                     </tr>
                 </thead>
-                <tbody>{itemList()}</tbody>
+                <tbody>{itemList(grandTotal)}</tbody>
             </table>
         </div>
     )

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from 'react'
 
 // We use Route in order to define the different routes of our application
 import { Route } from "react-router-dom";
@@ -19,8 +19,11 @@ import HomeContent from "./components/HomeContent";
 import "./App.css"
 
 const App = () => {
+  useEffect(() => {
+    document.title = "Inventory Tracker"
+  }, [])
+
   return (
-    
     <div className="main">
         <div>
           <Navbar />
