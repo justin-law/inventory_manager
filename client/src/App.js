@@ -15,6 +15,8 @@ import Outflow from "./components/Outflow";
 import OutCreate from "./components/OutCreate";
 import OutEdit from "./components/OutEdit";
 import HomeContent from "./components/HomeContent";
+import Contact from './components/Contact';
+import About from './components/About'
 
 import "./App.css"
 
@@ -84,12 +86,12 @@ const App = () => {
         </Route>
         <Route path ="/about">
           <div className='about-wrapper'>
-
+            <About />
           </div>
         </Route>
         <Route path="/contact">
           <div className='contact-wrapper'>
-
+            <Contact />
           </div>
         </Route>
     </div>

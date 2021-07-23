@@ -81,7 +81,7 @@ export default class OutCreate extends Component {
     return (
       <div className="create-content">
         <div className="create-card">
-        <h3>Create New Item Use</h3>
+        <h3>Create Outflow Record</h3>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
             <label>Item name: </label>

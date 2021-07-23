@@ -81,7 +81,7 @@ export default class Create extends Component {
     return (
       <div className="create-content">
         <div className="create-card">
-        <h3>Create New Item</h3>
+        <h3>Create Inflow Record</h3>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
             <label>Item name: </label>
