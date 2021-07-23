@@ -35,8 +35,6 @@ Add additional analytics using the MongoDB aggregation pipeline.
 
 Have homepage show 5 most recent inflow and outflow records
 
-Figure out why grand total page doesn't always show data
-
 Add item amount adjustment if inflow minus outflow doesn't match actual inventory
 
 Add contact and about pages on top navbar

@@ -82,6 +82,16 @@ const App = () => {
             </div>
           </div>
         </Route>
+        <Route path ="/about">
+          <div className='about-wrapper'>
+
+          </div>
+        </Route>
+        <Route path="/contact">
+          <div className='contact-wrapper'>
+
+          </div>
+        </Route>
     </div>
   );
 };
