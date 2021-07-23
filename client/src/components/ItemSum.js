@@ -41,7 +41,7 @@ function ItemSum() {
         <table className="table table-striped" >
           <thead>
             <tr>
-              <th className="itemCol">Item</th>
+              <th className="itemCol-sum">Item</th>
               <th className="numCol">Total amount</th>
             </tr>
           </thead>

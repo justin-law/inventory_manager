@@ -41,7 +41,6 @@ function GrandTotal() {
 
         const tempGT = new Map();
         inItems.items.forEach(element => {
-            console.log(element)
             tempGT.set(element._id, element.total);
         });
         outItems.items.forEach(element => {
@@ -77,7 +76,6 @@ function GrandTotal() {
             );
         });
     }
-
 
     return (
         <div className="total-wrapper">

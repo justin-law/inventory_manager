@@ -33,6 +33,10 @@ Items can also be searched for and deleted on the search page.
 
 Add additional analytics using the MongoDB aggregation pipeline.
 
-Have homepage show 5 most recent inflow and outflow records and show inflow-outflow item total
+Have homepage show 5 most recent inflow and outflow records
+
+Figure out why grand total page doesn't always show data
+
+on summary pages more space for item name, less for item amount
 
 Add item amount adjustment if inflow minus outflow doesn't match actual inventory
