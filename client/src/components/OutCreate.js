@@ -130,7 +130,7 @@ export default class OutCreate extends Component {
             />
           </div>
         </form>
-        <NavLink className="create-backbtn btn btn-primary" role="button" aria-pressed="false" to="/outflow">
+        <NavLink className="create-backbtn btn btn-primary" role="button" aria-pressed="false" exact to="/outflow">
           Back
         </NavLink>
       </div>

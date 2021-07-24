@@ -26,12 +26,6 @@ export default class Create extends Component {
     };
   }
 
-  navStyle = function() {
-    return ({
-        textDecoration: 'none',
-    })
-};
-
   // These methods will update the state properties.
   onChangeItemName(e) {
     this.setState({
@@ -136,7 +130,7 @@ export default class Create extends Component {
             />
           </div>
         </form>
-        <NavLink className="create-backbtn btn btn-primary" role="button" aria-pressed="false" to="/inflow">
+        <NavLink className="create-backbtn btn btn-primary" role="button" aria-pressed="false" exact to="/inflow">
           Back
         </NavLink>
       </div>
