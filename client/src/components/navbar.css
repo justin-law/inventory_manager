@@ -1,3 +1,20 @@
 .navbar-brand {
     margin-left: 15px;
 }
+
+.nav-link {
+    padding: 2px 5px;
+    margin: 0px 5px;
+    justify-content: center;
+    align-items: center; 
+    text-align: center;
+    border-radius: 5px;
+}
+
+/* .navbar {
+    background-color: rgb(245, 188, 0);
+} */
+/* .nav-link:hover {
+    background-color: rgb(245, 204, 0);
+} */
+

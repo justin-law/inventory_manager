@@ -10,7 +10,7 @@ import "./navbar.css"
 const Navbar = () => {
   return (
     <div className="navbar-main">
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark" style={{"backgroundColor":"rgb(82, 82, 82)"}}>
         <NavLink className="navbar-brand" to="/">
           Inventory Manager - Justin Law
         </NavLink>
@@ -28,28 +28,33 @@ const Navbar = () => {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/inflow/create">
-                Create Item In
+          <li className="nav-item">
+              <NavLink className="nav-link" activeStyle={{ color: 'black', backgroundColor: 'rgb(245, 188, 0)'}} exact to="/">
+                Home
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/outflow/create">
-                Create Item Out
+              <NavLink className="nav-link" activeStyle={{ color: 'black', backgroundColor: 'rgb(245, 188, 0)'}} to="/inflow/create">
+                New Item In
               </NavLink>
             </li>
-            <li>
-              <NavLink className="nav-link" to="/about">
+            <li className="nav-item">
+              <NavLink className="nav-link" activeStyle={{ color: 'black', backgroundColor: 'rgb(245, 188, 0)'}} to="/outflow/create">
+                New Item Out
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" activeStyle={{ color: 'black', backgroundColor: 'rgb(245, 188, 0)'}} to="/about">
                 About
               </NavLink>
             </li>
-            <li>
-              <NavLink className="nav-link" to="/contact">
+            <li className="nav-item">
+              <NavLink className="nav-link" activeStyle={{ color: 'black', backgroundColor: 'rgb(245, 188, 0)'}} to="/contact">
                 Contact Me
               </NavLink>
             </li>
-            <li>
-              <NavLink className="nav-link" to="/search">
+            <li className="nav-item">
+              <NavLink className="nav-link" activeStyle={{ color: 'black', backgroundColor: 'rgb(245, 188, 0)'}} to="/search">
                 Search
               </NavLink>
             </li>

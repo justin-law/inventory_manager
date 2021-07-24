@@ -126,11 +126,11 @@ export default class OutCreate extends Component {
             <input
               type="submit"
               value="Create record"
-              className="btn btn-primary"
+              className="btn btn-light"
             />
           </div>
         </form>
-        <NavLink className="create-backbtn btn btn-primary" role="button" aria-pressed="false" exact to="/outflow">
+        <NavLink className="create-backbtn btn btn-light" role="button" aria-pressed="false" exact to="/outflow">
           Back
         </NavLink>
       </div>

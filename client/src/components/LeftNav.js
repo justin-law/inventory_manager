@@ -26,9 +26,9 @@ function LeftNav(props) {
     
     function bgcolor(selected, cur) {
         if (selected === cur) {
-            return 'rgb(0, 216, 47)';
+            return 'rgb(245, 188, 0)';
         } else {
-            return 'rgb(214, 214, 214)';
+            return 'rgb(229, 229, 229)';
         }
     }
 

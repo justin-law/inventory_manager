@@ -100,7 +100,7 @@ class Edit extends Component {
     return (
       <div className="edit-content">
         <div className="edit-card">
-          <h3 align="center">Update Item</h3>
+          <h3>Update Item</h3>
           <form onSubmit={this.onSubmit}>
             <div className="form-group">
               <label>Item name: </label>
@@ -145,7 +145,7 @@ class Edit extends Component {
               <input
                 type="submit"
                 value="Update record"
-                className="btn btn-primary"
+                className="btn btn-light"
               />
             </div>
           </form>

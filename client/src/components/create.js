@@ -126,11 +126,11 @@ export default class Create extends Component {
             <input
               type="submit"
               value="Create record"
-              className= "btn btn-primary"
+              className= "btn btn-light"
             />
           </div>
         </form>
-        <NavLink className="create-backbtn btn btn-primary" role="button" aria-pressed="false" exact to="/inflow">
+        <NavLink className="create-backbtn btn btn-light" role="button" aria-pressed="false" exact to="/inflow">
           Back
         </NavLink>
       </div>
