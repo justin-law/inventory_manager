@@ -7,7 +7,7 @@ const Item = (props) => (
       <td>{props.item.item_name}</td>
       <td>{props.item.item_date}</td>
       <td>{props.item.item_amount}</td>
-      <td>{props.item.item_notes}</td>
+      <td className="home-notes">{props.item.item_notes}</td>
     </tr>
   );
 

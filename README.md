@@ -36,5 +36,3 @@ Add additional analytics using the MongoDB aggregation pipeline.
 Add item amount adjustment if inflow minus outflow doesn't match actual inventory
 
 Look for fitting color scheme and recolor UI
-
-If notes too long make it go to second row in detailed tables, hide it in home tables

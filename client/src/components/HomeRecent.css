@@ -25,3 +25,15 @@
 .notesCol-recent {
     width: 40%;
 }
+
+.home-notes {
+    max-width: 0;
+    overflow: hidden;
+ text-overflow: ellipsis;
+ white-space: nowrap;
+}
+
+.home-notes:hover {
+    overflow: visible;
+    white-space:normal;
+}
