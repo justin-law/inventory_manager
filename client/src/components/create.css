@@ -24,3 +24,11 @@
 .btn {
     margin-top: 10px;
 }
+
+.create-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.create-backbtn {
+    margin-bottom: 10px;
+}

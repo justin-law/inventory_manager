@@ -91,7 +91,7 @@ const App = () => {
         </Route>
         <Route path="/contact">
           <div className='contact-wrapper'>
-            <Contact />
+            <Contact />,
           </div>
         </Route>
     </div>

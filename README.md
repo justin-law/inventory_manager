@@ -33,8 +33,8 @@ Items can also be searched for and deleted on the search page.
 
 Add additional analytics using the MongoDB aggregation pipeline.
 
-Have homepage show 5 most recent inflow and outflow records
-
 Add item amount adjustment if inflow minus outflow doesn't match actual inventory
 
-Add contact and about pages on top navbar
+Look for fitting color scheme and recolor UI
+
+If notes too long make it go to second row in detailed tables, hide it in home tables

@@ -1,6 +1,7 @@
 import React from 'react'
 import "./HomeContent.css"
 import GrandTotal from './GrandTotal'
+import HomeRecent from './HomeRecent'
 
 function HomeContent() {
     return (
@@ -12,6 +13,7 @@ function HomeContent() {
                 <h5>click on any of the tabs on the left for more info</h5>
             </div> */}
             <GrandTotal />
+            <HomeRecent />
         </div>
     )
 }

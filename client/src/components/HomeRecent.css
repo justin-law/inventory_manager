@@ -1,0 +1,27 @@
+.container-recent {
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 2%;
+    grid-template-areas: 
+      "recentLeft recentRight"; 
+    margin-bottom: 2%;
+  }
+  .recentLeft { grid-area: recentLeft; }
+
+  .recentRight { grid-area: recentRight; }
+
+.itemCol-recent {
+    width: 20%;
+}
+.amountCol-recent {
+    width: 10%;
+}
+
+.dateCol-recent {
+    width: 20%;
+}
+
+.notesCol-recent {
+    width: 40%;
+}

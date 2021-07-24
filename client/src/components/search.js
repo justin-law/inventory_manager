@@ -129,7 +129,7 @@ function Search() {
               <label htmlFor="fname" className="form-label">Enter Query:</label>
               <input type="text" value={query} onChange={handleChange} className="form-control" id="searchterm" name="searchterm" required></input>
               <div className="col-auto">
-                <button type="submit" className="btn btn-primary mb-3">Search</button>
+                <button type="submit" className="btn btn-primary mb-3 searchbtn">Search</button>
               </div>
             </form>
           </div>

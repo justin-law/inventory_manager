@@ -26,6 +26,12 @@ export default class Create extends Component {
     };
   }
 
+  navStyle = function() {
+    return ({
+        textDecoration: 'none',
+    })
+};
+
   // These methods will update the state properties.
   onChangeItemName(e) {
     this.setState({
@@ -126,11 +132,11 @@ export default class Create extends Component {
             <input
               type="submit"
               value="Create record"
-              className="btn btn-primary"
+              className= "btn btn-primary"
             />
           </div>
         </form>
-        <NavLink className="btn btn-primary" role="button" aria-pressed="false" to="/inflow">
+        <NavLink className="create-backbtn btn btn-primary" role="button" aria-pressed="false" to="/inflow">
           Back
         </NavLink>
       </div>

@@ -195,5 +195,31 @@ recordRoutes.route("/outflow/search/:id").get(function (req, res) {
   });
 });
 
+// This section will help you get a list of all the inflow records.
+recordRoutes.route("/inflow/home").get(function (req, res) {
+  let db_connect = dbo.getDb("inventoryItems");
+  db_connect
+    .collection("inflow")
+    .find({}).sort({"item_date":-1})
+    .limit(5)
+    .toArray(function (err, result) {
+      if (err) throw err;
+      res.json(result);
+    });
+});
+
+// This section will help you get a list of all the outflow records.
+recordRoutes.route("/outflow/home").get(function (req, res) {
+  let db_connect = dbo.getDb("inventoryItems");
+  db_connect
+    .collection("outflow")
+    .find({}).sort({"item_date":-1})
+    .limit(5)
+    .toArray(function (err, result) {
+      if (err) throw err;
+      res.json(result);
+    });
+});
+
 
 module.exports = recordRoutes;
