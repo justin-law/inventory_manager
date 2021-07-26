@@ -12,10 +12,10 @@ function Contact() {
                         <div>Email: justinlaw801@gmail.com</div>
                     </li>
                     <li>
-                        <a href="https://github.com/justin-law" target="_blank">Github</a>
+                        <a href="https://github.com/justin-law" target="_blank" rel="noopener noreferrer">Github</a>
                     </li>
                     <li>
-                        <a href="https://www.linkedin.com/in/justinlaw801/" target="_blank">LinkedIn</a>
+                        <a href="https://www.linkedin.com/in/justinlaw801/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                     </li>
                 </ul>
                 

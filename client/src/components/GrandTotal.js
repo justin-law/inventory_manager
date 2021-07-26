@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios';
+import { Link } from "react-router-dom";
 import "./GrandTotal.css"
 
 //prototype of one item row within the table
@@ -7,6 +8,9 @@ const Item = (props) => (
     <tr>
         <td>{props.item._id}</td>
         <td>{props.item.total}</td>
+        <td>
+            <Link to={"/change/" + props.item._id + '/' + props.item.total}>Adjust</Link>
+        </td>
     </tr>
 );
 
@@ -86,6 +90,7 @@ function GrandTotal() {
                     <tr>
                     <th className="itemCol-sum">Item</th>
                     <th className="numCol">Total amount</th>
+                    <th className="actionCol">Action</th>
                     </tr>
                 </thead>
                 <tbody>{itemList(grandTotal)}</tbody>

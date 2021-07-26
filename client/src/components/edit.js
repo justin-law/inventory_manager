@@ -20,7 +20,6 @@ class Edit extends Component {
       item_date: "",
       item_amount: "",
       item_notes: "",
-      items: [],
     };
   }
   // This will get the record based on the id from the database.

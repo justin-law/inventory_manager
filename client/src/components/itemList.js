@@ -14,7 +14,7 @@ const Item = (props) => (
     <td>
       <Link to={"/inflow/edit/" + props.item._id}>Edit</Link> |
       <a
-        href="/"
+        href="/inflow"
         onClick={() => {
           props.deleteItem(props.item._id);
         }}

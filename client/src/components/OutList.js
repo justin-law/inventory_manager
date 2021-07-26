@@ -13,7 +13,7 @@ const Item = (props) => (
     <td>
       <Link to={"/outflow/edit/" + props.item._id}>Edit</Link> |
       <a
-        href="/"
+        href="/outflow"
         onClick={() => {
           props.deleteItem(props.item._id);
         }}

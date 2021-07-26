@@ -17,6 +17,7 @@ import OutEdit from "./components/OutEdit";
 import HomeContent from "./components/HomeContent";
 import Contact from './components/Contact';
 import About from './components/About'
+import AddAdjust from './components/AddAdjust';
 
 import "./App.css"
 
@@ -42,8 +43,15 @@ const App = () => {
           </div>
         </Route>
         
+        <Route path="/change/:id/:total">
+          <div className="grid-create">
+            <AddAdjust />
+          </div>
+        </Route>
+
         <Route path="/inflow/edit/:id" component={Edit} />
         <Route path="/outflow/edit/:id" component={OutEdit} />
+
         <Route path="/inflow/create">
           <div className="grid-create">
             <Create />
@@ -54,6 +62,7 @@ const App = () => {
             <OutCreate />
           </div>
         </Route>
+
         <Route exact path="/inflow">
           <div className='content'>
             <div className="left-nav">
@@ -74,6 +83,7 @@ const App = () => {
             </div>
           </div>
         </Route>
+
         <Route path="/search">
           <div className='content'>
             <div className="left-nav">
@@ -84,6 +94,7 @@ const App = () => {
             </div>
           </div>
         </Route>
+        
         <Route path ="/about">
           <div className='about-wrapper'>
             <About />
@@ -91,7 +102,7 @@ const App = () => {
         </Route>
         <Route path="/contact">
           <div className='contact-wrapper'>
-            <Contact />,
+            <Contact />
           </div>
         </Route>
     </div>

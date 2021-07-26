@@ -32,5 +32,3 @@ Items can also be searched for and deleted on the search page.
 ## Todo
 
 Add additional analytics using the MongoDB aggregation pipeline.
-
-Add item amount adjustment if inflow minus outflow doesn't match actual inventory
