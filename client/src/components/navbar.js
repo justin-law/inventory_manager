@@ -10,7 +10,7 @@ import "./navbar.css"
 const Navbar = () => {
   return (
     <div className="navbar-main">
-      <nav className="navbar navbar-expand-lg navbar-dark" style={{"backgroundColor":"rgb(82, 82, 82)"}}>
+      <nav className="navbar navbar-expand-lg navbar-dark" style={{"backgroundColor":"rgb(50, 50, 50)"}}>
         <NavLink className="navbar-brand" to="/">
           Inventory Manager - Justin Law
         </NavLink>

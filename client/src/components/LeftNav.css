@@ -44,10 +44,10 @@
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
 }
 
-/* .navItem:active {
+.navItem:active {
     background-color: darkgray;
     color: black;
-} */
+}
 
 h3 {
     color: rgb(0, 53, 102)

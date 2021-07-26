@@ -1,5 +1,6 @@
 import React from 'react'
-import { Link } from "react-router-dom";
+// We import NavLink to utilize the react router.
+import { NavLink } from "react-router-dom";
 import "./LeftNav.css"
 
 function LeftNav(props) {
@@ -17,20 +18,15 @@ function LeftNav(props) {
             'fontFamily': 'Verdana, Geneva, Tahoma, sans-serif',
             'padding': '4% 2%',
             'width': '100%',
-            'backgroundColor': bgcolor(props.selected, cur),
+            'backgroundColor': 'rgb(229, 229, 229)',
             'marginBottom': '15px',
             'paddingLeft': '0',
             'borderRadius': '5px'
         })
     };
     
-    function bgcolor(selected, cur) {
-        if (selected === cur) {
-            return 'rgb(245, 188, 0)';
-        } else {
-            return 'rgb(229, 229, 229)';
-        }
-    }
+
+    const activeColor = { color: 'black', backgroundColor: 'rgb(245, 188, 0)'};
 
     return (
         <div className="left-rect">
@@ -38,18 +34,18 @@ function LeftNav(props) {
             <hr></hr>
             <div className='left-inner'>
                 
-                    <Link style={navStyle("1")} className='navItem' to="/">
+                    <NavLink style={navStyle("1")} activeStyle={activeColor} className='navItem' exact to="/">
                         <li>Home</li>
-                    </Link>
-                    <Link style={navStyle("2")} className='navItem' to="/inflow">
+                    </NavLink>
+                    <NavLink style={navStyle("2")} activeStyle={activeColor} className='navItem' to="/inflow">
                         <li>Inflow</li>
-                    </Link>
-                    <Link style={navStyle("3")} className='navItem' to="/outflow">
+                    </NavLink>
+                    <NavLink style={navStyle("3")} activeStyle={activeColor} className='navItem' to="/outflow">
                         <li>Outflow</li>
-                    </Link>
-                    <Link style={navStyle("4")} className='navItem' to="/search">
+                    </NavLink>
+                    <NavLink style={navStyle("4")} activeStyle={activeColor} className='navItem' to="/search">
                         <li>Search</li>
-                    </Link>
+                    </NavLink>
                 
             </div>
         </div>
