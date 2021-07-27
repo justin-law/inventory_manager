@@ -6,12 +6,16 @@ function About() {
         <div className="create-content">
             <div className='create-card'>
                 <h3>About The App</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In aliquet ornare elit, nec pharetra quam malesuada quis. Vivamus vulputate felis ac quam facilisis molestie. Mauris tincidunt, neque vel rhoncus dapibus, libero augue ultrices lorem, eu tincidunt dolor metus ut est. Quisque at vulputate sem, ut eleifend nunc. Nam ullamcorper risus sit amet blandit varius. Mauris in nisl vel libero porttitor dictum eget id urna. Sed purus lacus, scelerisque aliquam tellus non, bibendum imperdiet sem.</p>
-                    
-                    <p>Aenean non quam augue. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer porta sit amet justo quis cursus. Donec euismod erat vel ullamcorper bibendum. Vivamus magna elit, consectetur et est at, ultrices finibus diam. Pellentesque orci ligula, interdum sed sapien at, elementum cursus augue. Donec et lacus id neque iaculis gravida eget ac tellus. Vivamus mauris dolor, mattis non massa ultrices, accumsan sagittis tortor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                    
-                    <p>Quisque eu posuere nunc, a ullamcorper purus. Vestibulum vitae congue tellus. Aliquam scelerisque, nisl id egestas faucibus, justo metus auctor dolor, vitae imperdiet turpis felis ac nisl. Nunc lacus magna, fermentum nec iaculis a, pellentesque vitae nisl. Maecenas gravida mauris ut ullamcorper viverra. Ut eu enim sodales, molestie quam vel, dictum arcu. In id enim efficitur, facilisis massa laoreet, aliquam ligula. Mauris vulputate fermentum dui eu semper. Nunc gravida pharetra lectus, nec tincidunt nibh maximus eget.</p>
-                    
+                    <p>My name is Justin Law, and I am a computer science and cognitive studies double major at Vanderbilt University graduating in 2023. </p>
+                    <p>I created this app to learn about the MERN stack and for one of my student groups.
+                         As the treasurer of the Maker Club at Vandy, I am in charge of the procurement of goods for our workshops and projects. 
+                         I found that the current method of keeping track of club inventory of storing data on an Excel spreadsheet wasn't adequate.
+                         I wanted both a UI that showed the relevant information for the club as well as functionality for more complex data visualization if necessary.
+                         React and MongoDB solved those two problems for me by both allowing for a responsive website and a powerful backend database with a range of advanced features.</p>
+                    <p>This was my first large project working with the tools and frameworks of the MERN stack and I learned a lot about modern website building.
+                        I am currently looking for a software engineering internship for summer 2022 and I hope this website was a showcase of my skills.
+                        My Email, GitHub and LinkedIn are in the Contact Me page, which can be reached on the Navbar.
+                    </p>
             </div>
         </div>
     )

@@ -1,0 +1,9 @@
+.contact-list {
+    list-style-type: none;
+    font-size: larger;
+
+}
+
+.contact-list li {
+    margin-top: 15px;
+}
