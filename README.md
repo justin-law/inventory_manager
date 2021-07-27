@@ -32,3 +32,5 @@ Items can also be searched for and deleted on the search page.
 ## Todo
 
 Add additional analytics using the MongoDB aggregation pipeline.
+
+add in adjustment change indicator

@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
-import { withRouter } from "react-router";
+import { withRouter } from "react-router-dom";
 import axios from 'axios';
+import './AddAdjust.css';
 
 function AddAdjust(props) {
     const [item_amount, setAmount] = useState(props.match.params.total);
@@ -30,7 +31,7 @@ function AddAdjust(props) {
             .then((res) => console.log(res.data));
         }
         //return to homepage
-        this.props.history.push("/");
+        props.history.push("/");
     }
 
     function onChangeItemAmount(e) {
@@ -42,8 +43,14 @@ function AddAdjust(props) {
     }
 
     function showChange() {
-        return
-        //(item_amount - props.match.params.total).toString
+      let difference =  item_amount - props.match.params.total;
+      if (difference > 0) {
+        return "Adjustment will add: " + difference;
+      } else if (difference < 0) {
+        return "Adjustment will remove: " + difference;
+      } else {
+        return "No change made";
+      }
     }
 
     return (
@@ -51,11 +58,11 @@ function AddAdjust(props) {
         <div className="edit-card">
           <h3>Adjust {props.match.params.id} Total Amount</h3>
           <h5>Current total amount: {props.match.params.total}</h5>
-          <h5>Current change: {showChange}</h5>
+          <h5>{showChange()}</h5>
           <form onSubmit={adjustSubmit}>
             
-            <div className="form-group">
-              <label>Item amount: </label>
+            <div className="form-group form-top" style={{marginTop: '20px'}}>
+              <label>New amount: </label>
               <input
                 type="number"
                 className="form-control"
@@ -64,7 +71,7 @@ function AddAdjust(props) {
                 required
               />
             </div>
-            <div className="form-group">
+            <div className="form-group" style={{marginTop: '10px'}}>
               <label>Item notes: </label>
               <input
                 type="text"
@@ -73,7 +80,7 @@ function AddAdjust(props) {
                 onChange={onChangeItemNotes}
               />
             </div>
-            <div className="form-group">
+            <div className="form-group" style={{marginTop: '10px'}}>
               <input
                 type="submit"
                 value="Update record"
