@@ -15,7 +15,7 @@ function OutSum() {
     });
 
     useEffect(() => {
-        axios.get("http://localhost:3000/outflow/sum/")
+        axios.get("https://mern-inventory-manager.herokuapp.com/outflow/sum/")
         .then((response) =>{
             setItems({items: response.data});
         }).catch(function (error) {

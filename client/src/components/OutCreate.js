@@ -64,7 +64,7 @@ export default class OutCreate extends Component {
     };
 
     axios
-      .post("http://localhost:3000/outflow/record/add", newitem)
+      .post("https://mern-inventory-manager.herokuapp.com/outflow/record/add", newitem)
       .then((res) => console.log(res.data));
 
     // We will empty the state after posting the data to the database

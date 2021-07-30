@@ -21,13 +21,13 @@ function AddAdjust(props) {
             newRecord.item_amount = difference;
             //post difference to inflow database
             axios
-            .post("http://localhost:3000/inflow/record/add", newRecord)
+            .post("https://mern-inventory-manager.herokuapp.com/inflow/record/add", newRecord)
             .then((res) => console.log(res.data));
         } else if (difference < 0) {
             //post difference to outflow
             newRecord.item_amount = -difference;
             axios
-            .post("http://localhost:3000/outflow/record/add", newRecord)
+            .post("https://mern-inventory-manager.herokuapp.com/outflow/record/add", newRecord)
             .then((res) => console.log(res.data));
         }
         //return to homepage

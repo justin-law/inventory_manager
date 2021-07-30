@@ -37,8 +37,8 @@ function GrandTotal() {
     useEffect(() => {
         async function fetchData() {
             //makes sure the item sums are fetched before calculations are made so that the forEach function later doesn't crash
-            let inItems = await makeGetRequest('http://localhost:3000/inflow/sum/');
-            let outItems = await makeGetRequest("http://localhost:3000/outflow/sum/");
+            let inItems = await makeGetRequest('https://mern-inventory-manager.herokuapp.com/inflow/sum/');
+            let outItems = await makeGetRequest("https://mern-inventory-manager.herokuapp.com/outflow/sum/");
 
             //use a hashmap to calculate the inflow - outflow total item amounts
             const tempGT = new Map();

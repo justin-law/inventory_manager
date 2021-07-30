@@ -25,7 +25,7 @@ class Edit extends Component {
   // This will get the record based on the id from the database.
   componentDidMount() {
     axios
-      .get("http://localhost:3000/inflow/record/" + this.props.match.params.id)
+      .get("https://mern-inventory-manager.herokuapp.com/inflow/record/" + this.props.match.params.id)
       .then((response) => {
         this.setState({
           item_name: response.data.item_name,
@@ -78,7 +78,7 @@ class Edit extends Component {
     // This will send a post request to update the data in the database.
     axios
       .post(
-        "http://localhost:3000/inflow/update/" + this.props.match.params.id,
+        "https://mern-inventory-manager.herokuapp.com/inflow/update/" + this.props.match.params.id,
         newEditedItem
       )
       .then((res) => console.log(res.data));

@@ -44,7 +44,7 @@ function Search() {
   const [submitted, setSubmitted] = useState(false);
 
   function getQueryData() {
-    axios.get('http://localhost:3000/inflow/search/' + query)
+    axios.get('https://mern-inventory-manager.herokuapp.com/inflow/search/' + query)
       .then((response) =>{
           setInItems({items: response.data});
           if (response.data.length === 0) {
@@ -56,7 +56,7 @@ function Search() {
           console.log(error);
       });
 
-    axios.get('http://localhost:3000/outflow/search/' + query)
+    axios.get('https://mern-inventory-manager.herokuapp.com/outflow/search/' + query)
       .then((response) =>{
           setOutItems({items: response.data});
           if (response.data.length === 0) {
@@ -113,7 +113,7 @@ function Search() {
 
   // This method will delete a record based on the method
   function deleteItem(action, id) {
-    axios.delete("http://localhost:3000/" + action + "/" + id).then((response) => {
+    axios.delete("https://mern-inventory-manager.herokuapp.com/" + action + "/" + id).then((response) => {
       console.log(response.data);
     });
   }

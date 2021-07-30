@@ -35,7 +35,7 @@ export default class OutList extends Component {
   // This method will get the data from the database.
   componentDidMount() {
     axios
-      .get("http://localhost:3000/outflow/record/")
+      .get("https://mern-inventory-manager.herokuapp.com/outflow/record/")
       .then((response) => {
         this.setState({ items: response.data });
       })
@@ -46,7 +46,7 @@ export default class OutList extends Component {
 
   // This method will delete a record based on the method
   deleteItem(id) {
-    axios.delete("http://localhost:3000/outflow/" + id).then((response) => {
+    axios.delete("https://mern-inventory-manager.herokuapp.com/outflow/" + id).then((response) => {
       console.log(response.data);
     });
 

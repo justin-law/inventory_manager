@@ -17,7 +17,7 @@ function HomeRecent() {
     });
 
     useEffect(() => {
-        axios.get("http://localhost:3000/inflow/home/")
+        axios.get("https://mern-inventory-manager.herokuapp.com/inflow/home/")
         .then((response) =>{
             setInItems({items: response.data});
         }).catch(function (error) {
@@ -30,7 +30,7 @@ function HomeRecent() {
     });
 
     useEffect(() => {
-        axios.get("http://localhost:3000/outflow/home/")
+        axios.get("https://mern-inventory-manager.herokuapp.com/outflow/home/")
         .then((response) =>{
             setOutItems({items: response.data});
         }).catch(function (error) {
